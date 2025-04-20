@@ -72,12 +72,11 @@ FlutterMethodChannel* channel;
 
   } else if ([@"authorize" isEqualToString:call.method]) {
 
-      [DBClientsManager authorizeFromController:[UIApplication sharedApplication]
-                                     controller:[[self class] topMostController]
-                                        openURL:^(NSURL *url) {
-                                          NSLog(@"url = %@" , [url absoluteString]);
-                                          [[UIApplication sharedApplication] openURL:url];
-                                        }];
+        [DBClientsManager authorizeFromController:[UIApplication sharedApplication]
+                                       controller:[[self class] topMostController]
+                                          openURL:^(NSURL *url) {
+                                              [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+                                          }];
       result([NSNumber numberWithBool:TRUE]);
       
   } else if ([@"getAuthorizeUrl" isEqualToString:call.method]) {
