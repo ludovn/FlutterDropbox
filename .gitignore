@@ -7,3 +7,5 @@
 build/
 
 example/dropbox_key.py
+
+.idea/
